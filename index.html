@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ApiSanătate – Produse Apicole & Beneficii pentru Sănătate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --honey:     #F59E0B;
+  --honey-dark:#B45309;
+  --honey-light:#FEF3C7;
+  --amber:     #D97706;
+  --cream:     #FFFBEB;
+  --brown:     #78350F;
+  --green:     #10B981;
+  --green-light:#D1FAE5;
+  --blue:      #3B82F6;
+  --blue-light:#EFF6FF;
+  --purple:    #8B5CF6;
+  --purple-light:#EDE9FE;
+  --red:       #EF4444;
+  --red-light: #FEE2E2;
+  --teal:      #06B6D4;
+  --teal-light:#CFFAFE;
+  --gray-50:   #F9FAFB;
+  --gray-100:  #F3F4F6;
+  --gray-200:  #E5E7EB;
+  --gray-300:  #D1D5DB;
+  --gray-400:  #9CA3AF;
+  --gray-500:  #6B7280;
+  --gray-600:  #4B5563;
+  --gray-700:  #374151;
+  --gray-800:  #1F2937;
+  --shadow:    0 1px 3px rgba(0,0,0,.1),0 1px 2px rgba(0,0,0,.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.12);
+  --radius:    14px;
+  --radius-sm: 8px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--gray-800);font-size:15px;min-height:100vh}
+
+/* ── HEADER ── */
+.hero{
+  background:linear-gradient(135deg,#78350F 0%,#B45309 40%,#F59E0B 100%);
+  padding:0;position:relative;overflow:hidden;
+}
+.hero-pattern{
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(255,255,255,.08) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.hero-inner{max-width:1100px;margin:auto;padding:52px 28px 44px;position:relative;z-index:1;display:flex;align-items:center;gap:40px;flex-wrap:wrap;}
+.hero-text{flex:1;min-width:260px;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.18);color:#fff;border-radius:30px;padding:5px 14px;font-size:12.5px;font-weight:700;letter-spacing:.4px;margin-bottom:16px;text-transform:uppercase}
+.hero h1{font-size:clamp(26px,4vw,42px);font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.hero h1 span{color:#FEF3C7}
+.hero p{font-size:15.5px;color:rgba(255,255,255,.85);line-height:1.7;max-width:520px;margin-bottom:24px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap}
+.hero-stat{text-align:center}
+.hero-stat strong{display:block;font-size:26px;font-weight:800;color:#FEF3C7}
+.hero-stat span{font-size:12px;color:rgba(255,255,255,.75);font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.hero-img{font-size:clamp(80px,14vw,140px);filter:drop-shadow(0 8px 24px rgba(0,0,0,.2));flex-shrink:0}
+
+/* ── NAV ── */
+.nav-bar{background:#fff;border-bottom:1px solid var(--gray-200);position:sticky;top:0;z-index:100;box-shadow:var(--shadow)}
+.nav-inner{max-width:1100px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:4px;overflow-x:auto}
+.nav-btn{display:flex;align-items:center;gap:7px;padding:14px 16px;cursor:pointer;font-size:14px;font-weight:600;color:var(--gray-500);border-bottom:3px solid transparent;white-space:nowrap;transition:all .15s;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.nav-btn:hover{color:var(--honey-dark);border-bottom-color:var(--honey)}
+.nav-btn.active{color:var(--honey-dark);border-bottom-color:var(--honey)}
+
+/* ── PAGES ── */
+.page{display:none;max-width:1100px;margin:auto;padding:36px 28px}
+.page.active{display:block}
+
+/* ── SECTION TITLES ── */
+.section-title{font-size:22px;font-weight:800;color:var(--brown);margin-bottom:6px}
+.section-sub{font-size:14px;color:var(--gray-500);margin-bottom:28px;line-height:1.6}
+
+/* ── SEARCH & FILTERS ── */
+.search-wrap{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap;align-items:center}
+.search-input{flex:1;min-width:200px;padding:10px 16px 10px 42px;border:1.5px solid var(--gray-200);border-radius:30px;font-family:inherit;font-size:14px;outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%239CA3AF' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.868-3.833zm-5.242 1.156a5 5 0 1 1 0-10 5 5 0 0 1 0 10z'/%3E%3C/svg%3E") 14px center no-repeat;transition:border-color .15s}
+.search-input:focus{border-color:var(--honey)}
+.filter-btn{padding:9px 18px;border-radius:30px;border:1.5px solid var(--gray-200);background:#fff;font-family:inherit;font-size:13.5px;font-weight:600;color:var(--gray-600);cursor:pointer;transition:all .15s;white-space:nowrap}
+.filter-btn:hover,.filter-btn.active{background:var(--honey);border-color:var(--honey);color:#fff}
+
+/* ── PRODUCT GRID ── */
+.product-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px}
+.product-card{
+  background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);
+  overflow:hidden;transition:transform .2s,box-shadow .2s;cursor:pointer;
+  border:2px solid transparent;
+}
+.product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:var(--honey)}
+.product-card.hidden{display:none}
+.card-banner{height:130px;display:flex;align-items:center;justify-content:center;font-size:64px;position:relative}
+.card-body{padding:18px 20px 20px}
+.card-cat{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;margin-bottom:8px;display:flex;align-items:center;gap:5px}
+.card-name{font-size:18px;font-weight:800;color:var(--brown);margin-bottom:6px}
+.card-latin{font-size:12px;color:var(--gray-400);font-style:italic;margin-bottom:10px}
+.card-desc{font-size:13.5px;color:var(--gray-600);line-height:1.6;margin-bottom:14px}
+.card-benefits{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
+.tag{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11.5px;font-weight:600}
+.card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:12px;border-top:1px solid var(--gray-100)}
+.rating{display:flex;gap:2px;font-size:14px}
+.btn-detail{padding:7px 16px;background:var(--honey);color:#fff;border:none;border-radius:20px;font-family:inherit;font-size:13px;font-weight:700;cursor:pointer;transition:background .15s}
+.btn-detail:hover{background:var(--amber)}
+
+/* ── MODAL ── */
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:300;align-items:center;justify-content:center;padding:20px}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:18px;max-width:780px;width:100%;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--shadow-lg)}
+.modal-top{padding:0;flex-shrink:0}
+.modal-banner{height:160px;display:flex;align-items:center;justify-content:center;font-size:80px;position:relative}
+.modal-header{padding:20px 28px 16px;border-bottom:1px solid var(--gray-100);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.modal-title-wrap .modal-name{font-size:22px;font-weight:800;color:var(--brown)}
+.modal-title-wrap .modal-latin{font-size:13px;color:var(--gray-400);font-style:italic;margin-top:2px}
+.modal-close{background:var(--gray-100);border:none;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .15s}
+.modal-close:hover{background:var(--gray-200)}
+.modal-scroll{overflow-y:auto;flex:1;padding:24px 28px}
+.modal-section{margin-bottom:24px}
+.modal-section-title{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.7px;color:var(--honey-dark);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.benefit-list{display:flex;flex-direction:column;gap:8px}
+.benefit-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;background:var(--honey-light);border-radius:10px;font-size:13.5px;line-height:1.55}
+.benefit-icon{font-size:18px;flex-shrink:0;margin-top:1px}
+.usage-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.usage-item{background:var(--gray-50);border-radius:10px;padding:12px 14px}
+.usage-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--gray-400);margin-bottom:4px}
+.usage-val{font-size:13.5px;font-weight:600;color:var(--gray-700)}
+.warning-box{background:#FEF3C7;border-left:3px solid var(--honey);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--honey-dark);line-height:1.6}
+.compound-grid{display:flex;flex-wrap:wrap;gap:6px}
+.compound-tag{padding:5px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:var(--gray-100);color:var(--gray-700)}
+
+/* ── BENEFITS PAGE ── */
+.condition-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.condition-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:20px;transition:transform .18s,box-shadow .18s;cursor:pointer;border:2px solid transparent}
+.condition-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.cond-icon{font-size:36px;margin-bottom:10px}
+.cond-name{font-size:15px;font-weight:800;color:var(--brown);margin-bottom:6px}
+.cond-products{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.cond-tag{font-size:11.5px;padding:2px 8px;border-radius:12px;font-weight:600}
+
+/* ── COMPARISON TABLE ── */
+.compare-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);background:#fff}
+.compare-table{width:100%;border-collapse:collapse;min-width:700px}
+.compare-table th{background:linear-gradient(135deg,#B45309,#F59E0B);color:#fff;padding:13px 16px;font-size:12.5px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;text-align:left}
+.compare-table td{padding:12px 16px;border-bottom:1px solid var(--gray-100);font-size:13.5px;vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:hover td{background:var(--honey-light)}
+.compare-table td:first-child{font-weight:700;color:var(--brown);white-space:nowrap}
+.stars{color:var(--honey);font-size:14px}
+
+/* ── GUIDE PAGE ── */
+.guide-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.guide-card{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;border-top:4px solid var(--honey)}
+.guide-icon{font-size:32px;margin-bottom:12px}
+.guide-title{font-size:16px;font-weight:800;color:var(--brown);margin-bottom:8px}
+.guide-steps{display:flex;flex-direction:column;gap:10px}
+.guide-step{display:flex;gap:10px;align-items:flex-start}
+.step-num{width:22px;height:22px;border-radius:50%;background:var(--honey);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
+.step-text{font-size:13.5px;color:var(--gray-600);line-height:1.55}
+
+/* ── INFO BOXES ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;margin-bottom:32px}
+.info-box{border-radius:var(--radius-sm);padding:16px 18px;font-size:13.5px;line-height:1.6}
+.info-box.amber{background:var(--honey-light);border-left:3px solid var(--honey)}
+.info-box.green{background:var(--green-light);border-left:3px solid var(--green)}
+.info-box.blue{background:var(--blue-light);border-left:3px solid var(--blue)}
+.info-box.purple{background:var(--purple-light);border-left:3px solid var(--purple)}
+.info-box strong{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.5px;font-weight:800;margin-bottom:4px}
+
+/* ── FOOTER ── */
+.footer{background:var(--brown);color:rgba(255,255,255,.7);text-align:center;padding:28px;font-size:13px;margin-top:60px}
+.footer strong{color:#fff}
+
+/* ── MISC ── */
+.empty{text-align:center;padding:60px 20px;color:var(--gray-400)}
+.empty-icon{font-size:48px;display:block;margin-bottom:12px}
+.divider{border:none;border-top:1px solid var(--gray-200);margin:28px 0}
+@media(max-width:640px){
+  .hero-inner{padding:36px 20px 30px;gap:24px}
+  .page{padding:28px 16px}
+  .usage-grid{grid-template-columns:1fr}
+  .modal-scroll{padding:18px 20px}
+  .modal-banner{height:120px;font-size:60px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-pattern"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-badge">🐝 Apiterapie &amp; Nutriție</div>
+      <h1>Produse Apicole<br><span>pentru Sănătate</span></h1>
+      <p>Descoperă proprietățile terapeutice ale produselor stupului – de la miere și propolis, până la lăptișor de matcă și venin de albine. Natură pură în serviciul sănătății tale.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><strong>8</strong><span>Produse</span></div>
+        <div class="hero-stat"><strong>40+</strong><span>Beneficii</span></div>
+        <div class="hero-stat"><strong>15+</strong><span>Afecțiuni</span></div>
+        <div class="hero-stat"><strong>5000+</strong><span>Ani de tradiție</span></div>
+      </div>
+    </div>
+    <div class="hero-img">🍯</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="showPage('products')">🛒 Produse</button>
+    <button class="nav-btn" onclick="showPage('benefits')">❤️ Beneficii</button>
+    <button class="nav-btn" onclick="showPage('compare')">📊 Comparație</button>
+    <button class="nav-btn" onclick="showPage('guide')">📖 Ghid de utilizare</button>
+  </div>
+</nav>
+
+<!-- ======= PAGE: PRODUCTS ======= -->
+<div class="page active" id="page-products">
+  <div class="section-title">Produsele Stupului</div>
+  <div class="section-sub">Fiecare produs are compoziție unică și proprietăți terapeutice dovedite. Selectează un produs pentru detalii complete.</div>
+
+  <div class="search-wrap">
+    <input class="search-input" id="searchInput" placeholder="Caută produs sau beneficiu..." oninput="filterProducts()">
+    <button class="filter-btn active" onclick="setFilter('toate',this)">Toate</button>
+    <button class="filter-btn" onclick="setFilter('nutritiv',this)">Nutritive</button>
+    <button class="filter-btn" onclick="setFilter('terapeutic',this)">Terapeutice</button>
+    <button class="filter-btn" onclick="setFilter('topic',this)">Uz topic</button>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</div>
+
+<!-- ======= PAGE: BENEFITS ======= -->
+<div class="page" id="page-benefits">
+  <div class="section-title">Beneficii pe Sisteme și Afecțiuni</div>
+  <div class="section-sub">Află ce produse apicole sunt recomandate pentru fiecare tip de problemă de sănătate.</div>
+
+  <div class="condition-grid" id="conditionGrid"></div>
+
+  <hr class="divider">
+  <div class="section-title" style="font-size:18px">Proprietăți generale ale produselor apicole</div>
+  <div class="info-grid" style="margin-top:18px">
+    <div class="info-box amber"><strong>Antibacterian</strong>Inhibă creșterea bacteriilor patogene prin peroxid de hidrogen, defensine și pH acid.</div>
+    <div class="info-box green"><strong>Antioxidant</strong>Flavonoizii și polifenolii neutralizează radicalii liberi și reduc stresul oxidativ celular.</div>
+    <div class="info-box blue"><strong>Antiinflamator</strong>Compușii biologic activi reduc producția de citokine proinflamatorii și mediatori ai inflamației.</div>
+    <div class="info-box purple"><strong>Imunomodulator</strong>Stimulează producția de limfocite, macrofage și imunoglobuline, întărind imunitatea.</div>
+    <div class="info-box amber"><strong>Cicatrizant</strong>Accelerează regenerarea tisulară prin stimularea proliferării celulare și angiogenezei.</div>
+    <div class="info-box green"><strong>Adaptogen</strong>Ajută organismul să reziste la stres fizic și psihic, echilibrând funcțiile vitale.</div>
+  </div>
+</div>
+
+<!-- ======= PAGE: COMPARE ======= -->
+<div class="page" id="page-compare">
+  <div class="section-title">Tabel comparativ – Produse Apicole</div>
+  <div class="section-sub">Compară proprietățile nutritive și terapeutice principale ale fiecărui produs.</div>
+  <div class="compare-wrap">
+    <table class="compare-table">
+      <thead>
+        <tr>
+          <th>Produs</th>
+          <th>Comp. principale</th>
+          <th>Acțiune primară</th>
+          <th>Mod de utilizare</th>
+          <th>Eficiență</th>
+          <th>Contraindicații</th>
+        </tr>
+      </thead>
+      <tbody id="compareBody"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ======= PAGE: GUIDE ======= -->
+<div class="page" id="page-guide">
+  <div class="section-title">Ghid Practic de Utilizare</div>
+  <div class="section-sub">Sfaturi pentru integrarea produselor apicole în rutina zilnică de sănătate.</div>
+
+  <div class="info-box amber" style="margin-bottom:24px;border-radius:var(--radius)">
+    ⚠️ <strong>Important:</strong> Informațiile prezentate au caracter educativ și nu înlocuiesc sfatul medicului. Persoanele alergice la produse apicole sau care urmează tratamente medicamentoase trebuie să consulte medicul înainte de utilizare.
+  </div>
+
+  <div class="guide-grid" id="guideGrid"></div>
+</div>
+
+<!-- MODAL -->
+<div class="overlay" id="overlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal" id="modal">
+    <div class="modal-top">
+      <div class="modal-banner" id="modalBanner"></div>
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <div class="modal-name" id="modalName"></div>
+          <div class="modal-latin" id="modalLatin"></div>
+        </div>
+        <button class="modal-close" onclick="closeModal()">✕</button>
+      </div>
+    </div>
+    <div class="modal-scroll" id="modalScroll"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <strong>ApiSănătate</strong> – Platforma educativă despre produsele apicole &amp; beneficiile lor pentru sănătatea umană<br>
+  <span style="margin-top:6px;display:block;font-size:12px">Informații cu scop educativ. Consultați medicul pentru diagnostic și tratament.</span>
+</footer>
+
+<script>
+// ============================================================
+// DATA
+// ============================================================
+const PRODUCTS = [
+  {
+    id: 'honey',
+    name: 'Miere de Albine',
+    latin: 'Mel',
+    emoji: '🍯',
+    category: ['nutritiv','terapeutic'],
+    color: ['#FEF3C7','#F59E0B'],
+    tagColor: 'background:#FEF3C7;color:#92400E',
+    shortDesc: 'Cel mai cunoscut produs al stupului, cu proprietăți antibacteriene, antioxidante și energizante excepționale.',
+    rating: 5,
+    compounds: ['Glucoză','Fructoză','Enzime','Flavonoizi','Peroxid de H₂','Defensine','Vitamine B','Minerale','Aminoacizi'],
+    benefits: [
+      { icon:'🦠', text:'Activitate antibacteriană puternică – eficientă împotriva Staphylococcus aureus, E. coli și altor bacterii patogene' },
+      { icon:'🛡️', text:'Antioxidant natural – combate radicalii liberi și reduce riscul bolilor cardiovasculare și al cancerului' },
+      { icon:'⚡', text:'Sursă rapidă de energie – ideal pentru sportivi și în perioadele de convalescență' },
+      { icon:'🫁', text:'Calmează tusea și iritațiile faringiene – la fel de eficientă ca difenhidramina în studii clinice' },
+      { icon:'💉', text:'Favorizează cicatrizarea rănilor, arsurilor și ulcerelor cutanate (miere Manuka)', },
+      { icon:'🧠', text:'Susține funcția cognitivă și memoria prin reducerea stresului oxidativ neuronal' },
+      { icon:'😴', text:'Îmbunătățește calitatea somnului – stimulează secreția de melatonină prin glicogen hepatic' },
+      { icon:'🫀', text:'Reduce LDL-colesterolul și trigliceridele, protejând sănătatea cardiovasculară' },
+    ],
+    usage: { doze:'1–3 linguri/zi', moment:'Dimineața pe stomacul gol sau seara', forma:'Crud, neîncălzit', depozitare:'La temperatura camerei, ferit de lumină' },
+    warning:'Contraindicată copiilor sub 1 an (risc de botulism infantil). Nu se administrează persoanelor cu diabet zaharat fără supraveghere medicală. Nu se încălzește peste 40°C.',
+    compare:{ comp:'Glucoză, fructoză, enzime, flavonoizi', actiune:'Antibacterian, antioxidant, energizant', mod:'Oral, topic', ef:'★★★★★', contra:'Diabet, sub 1 an' }
+  },
+  {
+    id: 'propolis',
+    name: 'Propolis',
+    latin: 'Propolis (Rezina albinelor)',
+    emoji: '🟤',
+    category: ['terapeutic'],
+    color: ['#FEF3C7','#92400E'],
+    tagColor: 'background:#FEF3C7;color:#92400E',
+    shortDesc: 'Rășina naturală a stupului, supranumit "antibioticul natural", cu spectru antimicrobian larg și proprietăți imunostimulatoare.',
+    rating: 5,
+    compounds: ['Flavonoide','Acizi fenolici','Esteri','Terpenoide','Vitaminele B, C, E','Oligoelemente','Cca. 300 compuși activi'],
+    benefits: [
+      { icon:'🦠', text:'Antimicrobian cu spectru larg – activ împotriva virusurilor, bacteriilor, fungilor și protozoarelor' },
+      { icon:'🛡️', text:'Imunomodulator puternic – stimulează activitatea macrofagelor și producția de interferon' },
+      { icon:'🔥', text:'Antiinflamator – inhibă sinteza prostaglandinelor și leucotrienelor proinflamatorii' },
+      { icon:'🦷', text:'Antiseptic oral – eficient în tratamentul cariilor, stomatitelor și parodontitelor' },
+      { icon:'🧬', text:'Activitate anticanceroasă demonstrată in vitro – induce apoptoza celulelor tumorale' },
+      { icon:'🩹', text:'Accelerează vindecarea rănilor și a ulcerațiilor cutanate, inclusiv herpesul labial' },
+      { icon:'🫁', text:'Benefic în infecțiile respiratorii: răceală, gripă, bronșite, sinuzite' },
+      { icon:'🧠', text:'Proprietăți neuroprotectoare – reduce inflamația cerebrală și protejează neuronii' },
+    ],
+    usage: { doze:'10–30 picături tinctură/zi sau 500 mg extract uscat', moment:'De 2–3 ori pe zi, înainte de mese', forma:'Tinctură, extract, tablete, spray', depozitare:'La loc răcoros și întunecos' },
+    warning:'Contraindicat persoanelor cu alergie la produse apicole sau cu sensibilitate la salicilați. Nu se utilizează intern pe termen îndelungat fără pauze (4–6 săptămâni pauză după 3 luni de utilizare).',
+    compare:{ comp:'Flavonoide, acizi fenolici, >300 compuși', actiune:'Antimicrobian, antiinflamator, antitumoral', mod:'Oral, topic, inhalare', ef:'★★★★★', contra:'Alergie la propolis' }
+  },
+  {
+    id: 'royaljelly',
+    name: 'Lăptișor de Matcă',
+    latin: 'Gelee royale / Royal Jelly',
+    emoji: '👑',
+    category: ['nutritiv','terapeutic'],
+    color: ['#FEF9C3','#CA8A04'],
+    tagColor: 'background:#FEF9C3;color:#854D0E',
+    shortDesc: 'Secretul longevității mătcii – hrănit exclusiv cu lăptișor, matca trăiește de 40x mai mult decât albinele lucrătoare.',
+    rating: 5,
+    compounds: ['10-HDA (acid 10-hidroxidecanoic)','Royalisine','Proteaze','Lipide','Zaharuri','Vitamine B1-B12','Acetilcolină','Biopterine'],
+    benefits: [
+      { icon:'⚡', text:'Energizant și tonic general – combate oboseala cronică și îmbunătățește rezistența fizică' },
+      { icon:'🧬', text:'Stimulează producția de colagen și regenerarea celulară – efect anti-îmbătrânire' },
+      { icon:'🧠', text:'Îmbunătățește funcția cognitivă, memoria și concentrarea prin acetilcolină' },
+      { icon:'🩸', text:'Echilibrează colesterolul și trigliceridele, protejând sistemul cardiovascular' },
+      { icon:'⚖️', text:'Reglează sistemul hormonal – util în menopauză, sindrom premenstrual și infertilitate' },
+      { icon:'🛡️', text:'Imunomodulator – stimulează producția de limfocite T și anticorpi' },
+      { icon:'💊', text:'Efecte antitumorale demonstrate în studii – inhibă proliferarea celulelor canceroase' },
+      { icon:'🌱', text:'Stimulează hematopoieza (formarea celulelor sanguine) – util în anemii' },
+    ],
+    usage: { doze:'0.3–1 g/zi (produs proaspăt) sau 150–300 mg extract liofilizat', moment:'Dimineața, pe stomacul gol, sub limbă 2–3 minute', forma:'Proaspăt (congelat), liofilizat, în amestec cu miere', depozitare:'La -18°C (proaspăt) sau loc răcoros, întunecos' },
+    warning:'Contraindicat în astm bronșic, boala Addison, sindromul ovarelor polichistice (PCOS), sarcină (trimestrul I), alergie la produse apicole. Nu se administrează copiilor sub 12 ani.',
+    compare:{ comp:'10-HDA, royalisine, acetilcolină, vitamine B', actiune:'Tonic, antiîmbătrânire, imunomodulator', mod:'Sublingual, oral', ef:'★★★★★', contra:'Astm, PCOS, sarcină T1' }
+  },
+  {
+    id: 'pollen',
+    name: 'Polen de Albine',
+    latin: 'Pollen apium',
+    emoji: '🌼',
+    category: ['nutritiv'],
+    color: ['#FEF08A','#CA8A04'],
+    tagColor: 'background:#FEF9C3;color:#854D0E',
+    shortDesc: 'Superalimentul complet al naturii – conține toți aminoacizii esențiali, vitamine, minerale și enzime necesare vieții.',
+    rating: 4,
+    compounds: ['Proteine (20–35%)','Aminoacizi esențiali','Vitamina C, E, A','Vitamine B complex','Beta-caroten','Rutină','Flavonoide','Enzime digestive','Acizi grași esențiali'],
+    benefits: [
+      { icon:'💪', text:'Cel mai complet aliment natural – conține toți nutrienții esențiali, inclusiv toți cei 22 de aminoacizi' },
+      { icon:'⚡', text:'Crește energia și rezistența fizică – popular în rândul sportivilor de performanță' },
+      { icon:'🩸', text:'Combat anemia feriprivă prin conținut de fier, acid folic și vitamina B12' },
+      { icon:'🌿', text:'Efect hepatoprotector – regenerează celulele hepatice și ameliorează steatoza hepatică' },
+      { icon:'🧬', text:'Antioxidant superior – niveluri ridicate de quercetină, kaempferol și luteolină' },
+      { icon:'🦷', text:'Contribuie la sănătatea osoasă prin calciu, magneziu, fosfor și vitamina D' },
+      { icon:'😊', text:'Îmbunătățește starea de spirit și combate depresia prin aminoacizii precursori ai serotoninei' },
+      { icon:'🫁', text:'Reduce simptomele alergiei la polenul de copac prin desensibilizare graduală' },
+    ],
+    usage: { doze:'1–3 lingurițe/zi (10–20 g)', moment:'Dimineața, cu 30 min. înainte de masă', forma:'Granule crude, pudră, capsule, în iaurt sau smoothie', depozitare:'Frigider sau congelator; se poate păstra la temperatura camerei max. 2 săptămâni' },
+    warning:'Poate provoca reacții alergice la persoanele sensibile la polen. Se recomandă testarea cu doze mici la început. Contraindicat în alergii grave la produse apicole.',
+    compare:{ comp:'Proteine, aminoacizi, vitamine C/E/B, flavonoide', actiune:'Nutritiv complet, antioxidant, energizant', mod:'Oral (alimentar)', ef:'★★★★☆', contra:'Alergii la polen' }
+  },
+  {
+    id: 'beeswax',
+    name: 'Ceară de Albine',
+    latin: 'Cera alba / Cera flava',
+    emoji: '🕯️',
+    category: ['topic'],
+    color: ['#FEF3C7','#D97706'],
+    tagColor: 'background:#FEF3C7;color:#92400E',
+    shortDesc: 'Protecție și regenerare pentru piele – baza produselor naturale de cosmetică și a preparatelor farmaceutice topic.',
+    rating: 4,
+    compounds: ['Monoesteri (35%)','Hidrocarbonaturi (14%)','Acizi grași liberi (12%)','Dioli','Triacilgliceroli','Vitamina A','Carotenoide','Flavonoide'],
+    benefits: [
+      { icon:'🧴', text:'Formează o barieră protectoare pe piele, prevenind deshidratarea și iritațiile externe' },
+      { icon:'💊', text:'Tratamentul local al eczemelor, psoriazisului și dermatitei atopice prin efectul antiinflamator' },
+      { icon:'🩹', text:'Accelerează vindecarea crăpăturilor pielii, a herpesului labial și a rănilor minore' },
+      { icon:'💋', text:'Ingredient de bază în produse de îngrijire buze, mâini, corp și în cosmetice naturale' },
+      { icon:'🧹', text:'Mecanic dental – mestecat ca gumă naturală, stimulează salivația și curăță dinții' },
+      { icon:'🫀', text:'Compresele de ceară caldă ameliorează durerile articulare și musculare' },
+      { icon:'🌱', text:'Antifungic topic – eficient în micoze cutanate superficiale în combinație cu propolis' },
+      { icon:'🛡️', text:'Biocompatibilă și hipoalergenică – acceptată de aproape toate tipurile de piele' },
+    ],
+    usage: { doze:'Aplicare topică după necesitate', moment:'De 1–3 ori pe zi pe zonele afectate', forma:'Unguente, creme, balsam de buze, împachetări calde', depozitare:'La temperatura camerei, ferit de căldură și lumină directă' },
+    warning:'Rareori, ceara de albine poate cauza reacții alergice la persoanele sensibile. Testați întotdeauna pe o zonă mică de piele înainte de utilizarea extinsă.',
+    compare:{ comp:'Monoesteri, acizi grași, vitamina A', actiune:'Emolient, protector, cicatrizant topic', mod:'Topic (unguente, creme)', ef:'★★★★☆', contra:'Alergie rară la ceară' }
+  },
+  {
+    id: 'venom',
+    name: 'Venin de Albine (Apitoxină)',
+    latin: 'Apitoxinum / Venom apium',
+    emoji: '💉',
+    category: ['terapeutic'],
+    color: ['#FEE2E2','#DC2626'],
+    tagColor: 'background:#FEE2E2;color:#991B1B',
+    shortDesc: 'Cel mai complex produs al stupului – utilizat în apiterapie pentru boli autoimune, artrite și afecțiuni neurologice.',
+    rating: 4,
+    compounds: ['Melitină (50%)','Apamină','Fosfolipaza A2','Histamină','Dopamină','Serotonină','Enzime proteolitice','Peptide biologic active'],
+    benefits: [
+      { icon:'🦴', text:'Antiartitic demonstrat – reduce inflamația articulară în artrita reumatoidă și osteoartrită' },
+      { icon:'🧠', text:'Neuroprotector – studii promițătoare în boala Parkinson și scleroza multiplă' },
+      { icon:'🔥', text:'Antiinflamator puternic – melitina inhibă NF-κB, reducând cascada inflamatorie' },
+      { icon:'🩸', text:'Antiacoagulant natural – reduce riscul trombozei prin inhibarea agregării plachetare' },
+      { icon:'🦠', text:'Antibacterian – eficient împotriva bacteriilor rezistente la antibiotice (MRSA)' },
+      { icon:'💊', text:'Imunomodulator – utilizat în imunoterapia alergiei la înțepăturile de albine' },
+      { icon:'🧬', text:'Activitate antitumorală – melitina perturbă membranele celulelor canceroase' },
+      { icon:'💪', text:'Stimulează producția naturală de cortizol – efect antiinflamator sistemic' },
+    ],
+    usage: { doze:'EXCLUSIV sub supraveghere medicală', moment:'Sesiuni de apiterapie programate', forma:'Înțepături controlate, injecții cu venin purificat, aplicare topic (creme)', depozitare:'Se administrează proaspăt sau produs farmaceutic standardizat' },
+    warning:'⚠️ PERICOL DE ANAFILAXIE. Nu se utilizează fără evaluare medicală prealabilă și test alergologic. Contraindicat absolut în: alergie confirmată la venin, boli cardiovasculare severe, tulburări de coagulare, sarcină, mastocitoză.',
+    compare:{ comp:'Melitină, apamină, fosfolipaza A2', actiune:'Antiartitic, neuroprotector, antiinflamator', mod:'Sub supraveghere medicală', ef:'★★★★☆', contra:'Alergie venin – RISC VITAL' }
+  },
+  {
+    id: 'apilarnil',
+    name: 'Apilarnil',
+    latin: 'Larva apium mascula',
+    emoji: '🥚',
+    category: ['nutritiv','terapeutic'],
+    color: ['#ECFDF5','#059669'],
+    tagColor: 'background:#D1FAE5;color:#065F46',
+    shortDesc: 'Produs românesc unic – larve de trântori liofilizate, cu proprietăți anabolizante naturale și tonic sexual recunoscut.',
+    rating: 4,
+    compounds: ['Hormoni sexuali naturali','Testosterone precursori','Aminoacizi (30+)','Vitamine A, D, E, K','Acizi grași Omega-3 și 6','Enzime','Minerale','Lipide biologic active'],
+    benefits: [
+      { icon:'💪', text:'Tonic general și anabolizant natural – crește masa musculară și reduce oboseala cronică' },
+      { icon:'❤️', text:'Aphrodisiac și stimulant sexual – reglează nivelul testosteronului și libidoul' },
+      { icon:'🧠', text:'Combate stresul, anxietatea și depresia – efect adaptogen demonstrat' },
+      { icon:'🩸', text:'Ameliorează anemia și epuizarea fizică prin conținut bogat de fier și vitamine B' },
+      { icon:'⚖️', text:'Susține echilibrul hormonal la bărbați și femei în perioadele de dezechilibru' },
+      { icon:'👶', text:'Utilizat în întârzierea creșterii la copii și în convalescență post-boală gravă' },
+      { icon:'🏃', text:'Crește performanța sportivă și capacitatea de efort fizic intens' },
+      { icon:'🌿', text:'Hepatoprotector și detoxifiant – susține funcțiile metabolice hepatice' },
+    ],
+    usage: { doze:'0.5–1 g/zi liofilizat sau 5–10 g proaspăt', moment:'Dimineața, pe stomacul gol', forma:'Liofilizat (capsule), proaspăt congelat, amestecat cu miere', depozitare:'La -18°C (proaspăt) sau loc răcoros, întunecos (liofilizat)' },
+    warning:'Contraindicat în cancer hormonodependent (prostată, sân), adenom de prostată, pubertate precoce. Precauție în boli hepatice severe. Produs de origine română (brevetat de dr. Nicolae Ilieșiu).',
+    compare:{ comp:'Hormoni precursori, aminoacizi, vitamine liposolubile', actiune:'Anabolizant, tonic sexual, adaptogen', mod:'Oral', ef:'★★★★☆', contra:'Cancer hormonal, adenom prostată' }
+  },
+  {
+    id: 'mead',
+    name: 'Căpăceală (Perga / Pâinea Albinelor)',
+    latin: 'Perga apium / Bread of bees',
+    emoji: '🫙',
+    category: ['nutritiv','terapeutic'],
+    color: ['#CFFAFE','#0891B2'],
+    tagColor: 'background:#CFFAFE;color:#155E75',
+    shortDesc: 'Polenul fermentat lacto-fermentativ de albine – biodisponibilitate superioară polenului crud, mai ușor de absorbit de organism.',
+    rating: 4,
+    compounds: ['Acizi organici (lactic, oxalic)','Proteine hidrolizate','Vitamine B fermentate','Probiotice naturale (Lactobacillus)','Enzime digestive','Fitosteroli','Acizi fenolici','Minerale chelatate'],
+    benefits: [
+      { icon:'🦠', text:'Probiotic natural – conține culturi de Lactobacillus care refac flora intestinală' },
+      { icon:'💊', text:'Biodisponibilitate de 2–3x superioară polenului crud – nutrienții se absorb mai eficient' },
+      { icon:'🧬', text:'Antioxidant superior – acizii fenolici liberi din fermentare au activitate de 10x mai mare' },
+      { icon:'🌿', text:'Susține sănătatea intestinală și reduce inflamația colonului (colită, IBS)' },
+      { icon:'💪', text:'Regenerare musculară accelerată post-efort prin aminoacizi liberi biodisponibili' },
+      { icon:'🛡️', text:'Imunostimulator puternic – probioticele activează GALT (țesut limfoid intestinal)' },
+      { icon:'🫀', text:'Reduce inflamația vasculară și îmbunătățește profilul lipidic mai eficient decât polenul' },
+      { icon:'🧠', text:'Susține axa intestin-creier prin microbiota echilibrată și producția de neurotransmițători' },
+    ],
+    usage: { doze:'1–2 lingurițe/zi (5–10 g)', moment:'Dimineața, cu 30 min. înainte de masă', forma:'Naturală (granule fermentate), capsule standardizate', depozitare:'Frigider; se poate păstra la temperatura camerei 1–2 luni' },
+    warning:'Perga este în general bine tolerată. Persoanele cu alergie la produse apicole trebuie să testeze cu doze mici. Poate cauza balonare ușoară în primele zile de administrare.',
+    compare:{ comp:'Acizi organici, probiotice, vitamine fermentate', actiune:'Probiotic, imunostimulator, antioxidant superior', mod:'Oral (alimentar)', ef:'★★★★☆', contra:'Alergie produse apicole' }
+  }
+];
+
+const CONDITIONS = [
+  { icon:'🦠', name:'Infecții & Imunitate', color:'#D1FAE5', tagColor:'background:#D1FAE5;color:#065F46', products:['Propolis','Miere','Lăptișor de Matcă','Venin de Albine'], desc:'Stimularea imunității și combaterea infecțiilor bacteriene, virale, fungice' },
+  { icon:'❤️', name:'Sănătate Cardiovasculară', color:'#FEE2E2', tagColor:'background:#FEE2E2;color:#991B1B', products:['Miere','Polen','Lăptișor de Matcă','Venin de Albine'], desc:'Reglarea colesterolului, tensiunii arteriale și protecția vaselor de sânge' },
+  { icon:'🧠', name:'Sănătate Neurologică', color:'#EDE9FE', tagColor:'background:#EDE9FE;color:#5B21B6', products:['Lăptișor de Matcă','Venin de Albine','Apilarnil','Perga'], desc:'Neuroprotecție, memorie, concentrare, combaterea stresului și anxietății' },
+  { icon:'🦴', name:'Articulații & Mișcare', color:'#CFFAFE', tagColor:'background:#CFFAFE;color:#155E75', products:['Venin de Albine','Ceară de Albine','Propolis'], desc:'Tratamentul artritei, artrozei, durerilor musculare și inflamației articulare' },
+  { icon:'🌿', name:'Sistem Digestiv', color:'#FEF9C3', tagColor:'background:#FEF9C3;color:#854D0E', products:['Miere','Propolis','Perga','Polen'], desc:'Sănătatea intestinală, tratamentul ulcerului gastric, florei intestinale' },
+  { icon:'🫁', name:'Căi Respiratorii', color:'#DBEAFE', tagColor:'background:#DBEAFE;color:#1E40AF', products:['Miere','Propolis','Polen'], desc:'Tratamentul tusei, bronșitei, sinuzitei, rinitei alergice' },
+  { icon:'🧴', name:'Piele & Mucoase', color:'#FCE7F3', tagColor:'background:#FCE7F3;color:#9D174D', products:['Ceară de Albine','Miere','Propolis'], desc:'Cicatrizare, eczeme, psoriazis, herpes, arsuri, îngrijire generală' },
+  { icon:'⚡', name:'Energie & Vitalitate', color:'#FEF3C7', tagColor:'background:#FEF3C7;color:#92400E', products:['Miere','Polen','Apilarnil','Lăptișor de Matcă'], desc:'Combaterea oboselii cronice, creșterea rezistenței fizice și psihice' },
+  { icon:'⚖️', name:'Echilibru Hormonal', color:'#F3E8FF', tagColor:'background:#F3E8FF;color:#6B21A8', products:['Lăptișor de Matcă','Apilarnil'], desc:'Reglarea funcțiilor hormonale, menopauza, fertilitate, testosteron' },
+  { icon:'🧬', name:'Prevenție Cancer', color:'#ECFDF5', tagColor:'background:#ECFDF5;color:#065F46', products:['Propolis','Venin de Albine','Lăptișor de Matcă','Miere'], desc:'Proprietăți antitumorale, antiproliferative și de inducere a apoptozei' },
+  { icon:'🩸', name:'Sânge & Anemie', color:'#FEE2E2', tagColor:'background:#FEE2E2;color:#991B1B', products:['Polen','Perga','Apilarnil','Lăptișor de Matcă'], desc:'Tratamentul anemiei, stimularea hematopoiezei, îmbunătățirea profilului lipidic' },
+  { icon:'🌙', name:'Somn & Relaxare', color:'#E0E7FF', tagColor:'background:#E0E7FF;color:#3730A3', products:['Miere','Propolis'], desc:'Îmbunătățirea calității somnului, reducerea insomniei și anxietății' },
+];
+
+const GUIDE_ITEMS = [
+  { icon:'🌅', title:'Dimineața pe stomacul gol', steps:[
+    'Lăptișor de matcă sublingual (0.5 g) – absorbție maximă',
+    'Apilarnil sau tinctură de propolis (15 picături în apă)',
+    'Miere crudă (1 linguriță) – activare metabolică',
+    'Așteptați 20–30 min. înainte de micul dejun'
+  ]},
+  { icon:'🥣', title:'Cu mesele', steps:[
+    'Polen sau perga (1 linguriță) amestecat în iaurt sau smoothie',
+    'Nu combinați cu lichide fierbinți (>40°C) – distruge enzimele',
+    'Mierea se poate adăuga în preparate reci sau la temperatura camerei',
+    'Polenul asociat cu vitamina C crește absorbția fierului'
+  ]},
+  { icon:'💪', title:'Pentru Sportivi', steps:[
+    'Pre-antrenament: miere crudă (1–2 linguri) pentru energie rapidă',
+    'Post-antrenament: perga sau polen pentru recuperare musculară',
+    'Cure de apilarnil (4–6 săptămâni) pentru creșterea masei musculare',
+    'Hidratare cu apă cu miere și lămâie după efort intens'
+  ]},
+  { icon:'👶', title:'Copii (>1 an)', steps:[
+    'Miere: de la 1 an – NU înainte (botulism infantil)',
+    'Polen: de la 3 ani – doze mici, testate progresiv',
+    'Propolis diluat: de la 5 ani – 5 picături tinctură',
+    'Lăptișor de matcă: recomandat de la 12 ani'
+  ]},
+  { icon:'🧓', title:'Persoane Vârstnice', steps:[
+    'Lăptișor de matcă – tonic energetic și cognitiv zilnic',
+    'Miere + canelă – beneficii circulatorii și antiinflamatoare',
+    'Propolis – protecție imunitară în sezonul rece',
+    'Ceară caldă – aplicații articulare pentru ameliorarea durerilor'
+  ]},
+  { icon:'📅', title:'Cure și cicluri recomandate', steps:[
+    'Cura de primăvară: 30 zile lăptișor + propolis + polen',
+    'Cura de toamnă: propolis + miere Manuka (imunitate)',
+    'Pauze obligatorii: 4–6 săptămâni pauză după 3 luni',
+    'Nu combinați mai mult de 3 produse apicole simultan'
+  ]},
+  { icon:'🌡️', title:'Depozitare corectă', steps:[
+    'Mierea: etanș, la temperatura camerei, ferit de lumină',
+    'Lăptișorul/Apilarnil proaspăt: la -18°C; liofilizat la loc răcoros',
+    'Propolisul tinctură: loc răcoros, întunecos; valabilitate 3+ ani',
+    'Polenul: frigider sau congelator; max. 2 săptămâni la T. camerei'
+  ]},
+  { icon:'⚠️', title:'Contraindicații generale', steps:[
+    'Alergii la produse apicole – testare obligatorie înainte',
+    'Graviditate: evitați lăptișor T1, venin de albine, cantități mari',
+    'Diabet zaharat: miere cu moderație, supraveghere glicemică',
+    'Medicamente: propolis + anticoagulante = interacțiune posibilă'
+  ]},
+];
+
+// ============================================================
+// RENDER PRODUCTS
+// ============================================================
+function renderProducts() {
+  const grid = document.getElementById('productGrid');
+  grid.innerHTML = PRODUCTS.map(p => {
+    const stars = '★'.repeat(p.rating) + '☆'.repeat(5 - p.rating);
+    const benefitTags = p.benefits.slice(0,3).map(b => `<span class="tag" style="${p.tagColor}">${b.icon} ${b.text.split('–')[0].split('-')[0].trim().slice(0,28)}</span>`).join('');
+    return `<div class="product-card" data-id="${p.id}" data-cat="${p.category.join(' ')}" onclick="openProduct('${p.id}')">
+      <div class="card-banner" style="background:linear-gradient(135deg,${p.color[0]},${p.color[1]}30)">
+        <span style="font-size:70px;filter:drop-shadow(0 4px 12px rgba(0,0,0,.15))">${p.emoji}</span>
+      </div>
+      <div class="card-body">
+        <div class="card-cat" style="${p.tagColor}">${p.category.map(c=>c.charAt(0).toUpperCase()+c.slice(1)).join(' · ')}</div>
+        <div class="card-name">${p.name}</div>
+        <div class="card-latin">${p.latin}</div>
+        <div class="card-desc">${p.shortDesc}</div>
+        <div class="card-benefits">${benefitTags}</div>
+        <div class="card-footer">
+          <div class="rating" style="color:var(--honey)">${stars}</div>
+          <button class="btn-detail" onclick="event.stopPropagation();openProduct('${p.id}')">Vezi detalii →</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ============================================================
+// FILTER & SEARCH
+// ============================================================
+let activeFilter = 'toate';
+
+function setFilter(cat, btn) {
+  activeFilter = cat;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  filterProducts();
+}
+
+function filterProducts() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('.product-card').forEach(card => {
+    const id = card.dataset.id;
+    const p = PRODUCTS.find(x => x.id === id);
+    const matchCat = activeFilter === 'toate' || card.dataset.cat.includes(activeFilter);
+    const searchText = (p.name + p.shortDesc + p.benefits.map(b=>b.text).join(' ')).toLowerCase();
+    const matchQ = !q || searchText.includes(q);
+    card.classList.toggle('hidden', !(matchCat && matchQ));
+  });
+  const anyVisible = [...document.querySelectorAll('.product-card:not(.hidden)')].length > 0;
+  let empty = document.getElementById('emptyMsg');
+  if (!anyVisible) {
+    if (!empty) {
+      empty = document.createElement('div');
+      empty.id = 'emptyMsg';
+      empty.className = 'empty';
+      empty.innerHTML = '<span class="empty-icon">🔍</span>Niciun produs găsit. Încearcă alt termen de căutare.';
+      document.getElementById('productGrid').after(empty);
+    }
+    empty.style.display = 'block';
+  } else if (empty) {
+    empty.style.display = 'none';
+  }
+}
+
+// ============================================================
+// MODAL
+// ============================================================
+function openProduct(id) {
+  const p = PRODUCTS.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modalBanner').style.cssText = `height:160px;display:flex;align-items:center;justify-content:center;font-size:80px;background:linear-gradient(135deg,${p.color[0]},${p.color[1]}50)`;
+  document.getElementById('modalBanner').textContent = p.emoji;
+  document.getElementById('modalName').textContent = p.name;
+  document.getElementById('modalLatin').textContent = p.latin;
+
+  const benefitHTML = p.benefits.map(b =>
+    `<div class="benefit-item"><span class="benefit-icon">${b.icon}</span><span>${b.text}</span></div>`
+  ).join('');
+
+  const compHTML = p.compounds.map(c =>
+    `<span class="compound-tag">${c}</span>`
+  ).join('');
+
+  document.getElementById('modalScroll').innerHTML = `
+    <div class="modal-section">
+      <div class="modal-section-title">📋 Descriere</div>
+      <p style="font-size:14px;color:var(--gray-600);line-height:1.7">${p.shortDesc}</p>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">🧪 Compoziție principală</div>
+      <div class="compound-grid">${compHTML}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">✅ Beneficii terapeutice</div>
+      <div class="benefit-list">${benefitHTML}</div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">💊 Mod de utilizare</div>
+      <div class="usage-grid">
+        <div class="usage-item"><div class="usage-label">Doză recomandată</div><div class="usage-val">${p.usage.doze}</div></div>
+        <div class="usage-item"><div class="usage-label">Momentul administrării</div><div class="usage-val">${p.usage.moment}</div></div>
+        <div class="usage-item"><div class="usage-label">Forma de prezentare</div><div class="usage-val">${p.usage.forma}</div></div>
+        <div class="usage-item"><div class="usage-label">Depozitare</div><div class="usage-val">${p.usage.depozitare}</div></div>
+      </div>
+    </div>
+    <div class="modal-section">
+      <div class="modal-section-title">⚠️ Precauții și contraindicații</div>
+      <div class="warning-box">${p.warning}</div>
+    </div>
+  `;
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ============================================================
+// RENDER CONDITIONS
+// ============================================================
+function renderConditions() {
+  document.getElementById('conditionGrid').innerHTML = CONDITIONS.map(c => `
+    <div class="condition-card" style="border-top:4px solid ${c.color.replace('FE','DD')}">
+      <div class="cond-icon">${c.icon}</div>
+      <div class="cond-name">${c.name}</div>
+      <div style="font-size:12.5px;color:var(--gray-500);margin-bottom:10px;line-height:1.5">${c.desc}</div>
+      <div class="cond-products">
+        ${c.products.map(p => `<span class="cond-tag" style="${c.tagColor}">${p}</span>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ============================================================
+// RENDER COMPARE
+// ============================================================
+function renderCompare() {
+  document.getElementById('compareBody').innerHTML = PRODUCTS.map(p => `
+    <tr>
+      <td>${p.emoji} ${p.name}</td>
+      <td style="max-width:180px;font-size:12.5px">${p.compare.comp}</td>
+      <td style="font-size:12.5px">${p.compare.actiune}</td>
+      <td style="font-size:12.5px">${p.compare.mod}</td>
+      <td><span class="stars">${p.compare.ef}</span></td>
+      <td style="font-size:12px;color:var(--red)">${p.compare.contra}</td>
+    </tr>`).join('');
+}
+
+// ============================================================
+// RENDER GUIDE
+// ============================================================
+function renderGuide() {
+  document.getElementById('guideGrid').innerHTML = GUIDE_ITEMS.map(g => `
+    <div class="guide-card">
+      <div class="guide-icon">${g.icon}</div>
+      <div class="guide-title">${g.title}</div>
+      <div class="guide-steps">
+        ${g.steps.map((s, i) => `
+          <div class="guide-step">
+            <div class="step-num">${i+1}</div>
+            <div class="step-text">${s}</div>
+          </div>`).join('')}
+      </div>
+    </div>`).join('');
+}
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-btn').forEach(b => {
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'"+page+"'")) b.classList.add('active');
+  });
+}
+
+// ============================================================
+// INIT
+// ============================================================
+renderProducts();
+renderConditions();
+renderCompare();
+renderGuide();
+</script>
+</body>
+</html>
